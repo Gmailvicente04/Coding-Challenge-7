@@ -74,5 +74,20 @@ function calculateLoanInterest(principal, rate, years) {
 
   // Test Data
   console.log(filterHighValueTransactions(transactions, amount => amount > 1000)); // Expected output: [1200, 3000, 2200]
+
+
+  // Task 7: Closures
+function createBudgetTracker() {
+    let balance = 0;
+    return function(amount) {
+      balance -= amount;
+      return `Current Balance: -$${Math.abs(balance).toFixed(2)}`;
+    };
+  }
+  
+  // Test Data
+  let budget = createBudgetTracker();
+  console.log(budget(300)); // Expected output: "Current Balance: -$300"
+  console.log(budget(200)); // Expected output: "Current Balance: -$500"
   
   
